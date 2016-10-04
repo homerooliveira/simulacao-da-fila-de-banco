@@ -51,16 +51,9 @@ public class QueueLinked<E> implements QueueTAD<E> {
             throw new RuntimeException("count="+count);
         }
 
-
         Node node = head;
-        int pos = 0;
-        while (pos < count - 1) {
-            node = node.next;
-            pos++;
-        }
-
+        head = node.next;
         count--;
-
         return node.element;
     }
 

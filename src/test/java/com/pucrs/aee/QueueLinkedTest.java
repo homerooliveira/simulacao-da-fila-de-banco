@@ -43,12 +43,12 @@ public class QueueLinkedTest {
         queue.enqueue(6);
 
         assertEquals(6, queue.size());
-        assertEquals(Integer.valueOf(6), queue.dequeue());
-        assertEquals(Integer.valueOf(5), queue.dequeue());
-        assertEquals(Integer.valueOf(4), queue.dequeue());
-        assertEquals(Integer.valueOf(3), queue.dequeue());
-        assertEquals(Integer.valueOf(2), queue.dequeue());
         assertEquals(Integer.valueOf(1), queue.dequeue());
+        assertEquals(Integer.valueOf(2), queue.dequeue());
+        assertEquals(Integer.valueOf(3), queue.dequeue());
+        assertEquals(Integer.valueOf(4), queue.dequeue());
+        assertEquals(Integer.valueOf(5), queue.dequeue());
+        assertEquals(Integer.valueOf(6), queue.dequeue());
     }
 
     @Test
