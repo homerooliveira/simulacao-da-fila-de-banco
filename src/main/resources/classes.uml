@@ -3,12 +3,50 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="224.0" y="0.0">com.pucrs.aee.Cliente</node>
-    <node x="0.0" y="0.0">com.pucrs.aee.QueueTAD</node>
+    <node x="422.44444444444446" y="-30.0">com.pucrs.aee.Cliente</node>
+    <node x="765.5555555555555" y="-39.11111111111106">com.pucrs.aee.GeradorDeClientes</node>
+    <node x="53.0" y="508.6666666666667">com.pucrs.aee.QueueLinked.Node</node>
+    <node x="55.55555555555554" y="191.0">com.pucrs.aee.QueueLinked</node>
+    <node x="211.77777777777783" y="-230.88888888888894">com.pucrs.aee.Simulacao</node>
+    <node x="442.1111111111113" y="200.77777777777783">com.pucrs.aee.Caixa</node>
+    <node x="47.0" y="0.0">com.pucrs.aee.QueueTAD</node>
   </nodes>
   <notes />
-  <edges />
-  <settings layout="Hierarchic Group" zoom="0.9" x="629.4444444444445" y="-9.777777777777771" />
+  <edges>
+    <edge source="com.pucrs.aee.Simulacao" target="com.pucrs.aee.Cliente">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.pucrs.aee.Simulacao" target="com.pucrs.aee.QueueTAD">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.pucrs.aee.QueueLinked" target="com.pucrs.aee.QueueTAD">
+      <point x="0.0" y="-115.5" />
+      <point x="0.0" y="70.5" />
+    </edge>
+    <edge source="com.pucrs.aee.GeradorDeClientes" target="com.pucrs.aee.Cliente">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.pucrs.aee.Simulacao" target="com.pucrs.aee.QueueLinked">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.pucrs.aee.Caixa" target="com.pucrs.aee.Cliente">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.pucrs.aee.QueueLinked.Node" target="com.pucrs.aee.QueueLinked">
+      <point x="0.0" y="-60.0" />
+      <point x="0.0" y="115.5" />
+    </edge>
+    <edge source="com.pucrs.aee.QueueLinked" target="com.pucrs.aee.QueueLinked.Node">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9" x="627.2222222222222" y="61.88888888888886" />
   <SelectedNodes />
   <Categories>
     <Category>Properties</Category>

@@ -15,6 +15,7 @@ public class Caixa {
 
     public void atenderNovoCliente(Cliente cliente){
         // TODO: 04/10/2016 Implementar este método.
+        numeroDeAtendidos++;
     }
 
     public Cliente dispensarClienteAtual(){

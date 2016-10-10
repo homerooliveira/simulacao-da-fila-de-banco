@@ -10,8 +10,9 @@ public interface QueueTAD<E> {
 
     void clear();
 
-
     void enqueue(E element);
 
     E dequeue();
+
+    E front();
 }

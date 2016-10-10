@@ -1,5 +1,7 @@
 package com.pucrs.aee;
 
+import java.util.NoSuchElementException;
+
 /**
  * Created by Junior on 04/10/2016.
  */
@@ -34,7 +36,7 @@ public class QueueLinked<E> implements QueueTAD<E> {
 
     @Override
     public void enqueue(E element) {
-        Node node = new Node(element, null);
+        Node node = new Node(element);
         if (count == 0) {
             head = node;
             tail = node;
@@ -45,10 +47,11 @@ public class QueueLinked<E> implements QueueTAD<E> {
         count++;
     }
 
+
     @Override
     public E dequeue() {
         if (count == 0) {
-            throw new RuntimeException("count="+count);
+            throw new NoSuchElementException();
         }
 
         Node node = head;
@@ -57,22 +60,42 @@ public class QueueLinked<E> implements QueueTAD<E> {
         return node.element;
     }
 
+    @Override
+    public E front() {
+        if (count == 0) {
+            throw new NoSuchElementException();
+        }
+
+        return head.element;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("[");
+        Node atual = head;
+        boolean primeiro = true;
+
+        while (atual != null) {
+            if (!primeiro) {
+                sb.append(", ");
+            }
+            sb.append(atual.element);
+            atual = atual.next;
+            primeiro = false;
+
+        }
+        sb.append(']');
+        return sb.toString();
+    }
+
     private class Node {
         E element;
         Node next;
 
-        public Node(E element, Node next) {
+        public Node(E element) {
             this.element = element;
-            this.next = next;
+            this.next = null;
         }
 
-        @Override
-        public String toString() {
-            final StringBuilder sb = new StringBuilder("Node{");
-            sb.append("element=").append(element);
-            sb.append(", next=").append(next);
-            sb.append('}');
-            return sb.toString();
-        }
     }
 }
