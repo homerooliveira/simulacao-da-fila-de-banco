@@ -2,9 +2,6 @@ package com.pucrs.aee;
 
 import java.util.NoSuchElementException;
 
-/**
- * Created by Junior on 04/10/2016.
- */
 public class QueueLinked<E> implements QueueTAD<E> {
 
     private Node head;
@@ -92,7 +89,7 @@ public class QueueLinked<E> implements QueueTAD<E> {
         E element;
         Node next;
 
-        public Node(E element) {
+        Node(E element) {
             this.element = element;
             this.next = null;
         }

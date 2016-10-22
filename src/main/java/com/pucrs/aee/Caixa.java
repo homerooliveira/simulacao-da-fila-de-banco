@@ -1,5 +1,7 @@
 package com.pucrs.aee;
 
+import java.util.NoSuchElementException;
+
 /**
  * Created by Junior on 04/10/2016.
  */
@@ -14,13 +16,12 @@ public class Caixa {
     }
 
     public void atenderNovoCliente(Cliente cliente){
-        // TODO: 04/10/2016 Implementar este método.
         numeroDeAtendidos++;
     }
 
     public Cliente dispensarClienteAtual(){
         if(clienteAtual == null){
-            throw new RuntimeException("Não existe nenhum cliente para dispensar.");
+            throw new NoSuchElementException("Não existe nenhum cliente para dispensar.");
         }
         Cliente cliente = this.clienteAtual;
         this.clienteAtual = null;

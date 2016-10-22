@@ -2,9 +2,6 @@ package com.pucrs.aee;
 
 import java.util.Objects;
 
-/**
- * Created by Junior on 29/09/2016.
- */
 public class Cliente {
     private String nome;
     private int idade;

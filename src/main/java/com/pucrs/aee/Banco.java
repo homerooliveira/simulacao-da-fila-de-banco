@@ -27,15 +27,16 @@ public class Banco {
         QueueTAD<Cliente> filaDeAtendimento = procuraIdosos(fila);
 
         if (!fila.isEmpty()) {
-            int sizeOfFila = 5;
+            int tamanhoPadrao = 5;
             if (filaDeAtendimento.size() < 5) {
-                sizeOfFila = 10 - filaDeAtendimento.size();
-            }
-            if (fila.size() < sizeOfFila) {
-                sizeOfFila = fila.size();
+                tamanhoPadrao = 10 - filaDeAtendimento.size();
             }
 
-            for (int i = 0; i < sizeOfFila; i++) {
+            if (fila.size() < tamanhoPadrao) {
+                tamanhoPadrao = fila.size();
+            }
+
+            for (int i = 0; i < tamanhoPadrao; i++) {
                 filaDeAtendimento.enqueue(fila.dequeue());
             }
         }
@@ -46,42 +47,40 @@ public class Banco {
 
     private QueueTAD<Cliente> procuraIdosos(QueueTAD<Cliente> fila) {
         int size = fila.size();
-        int idosos = 0;
-        QueueTAD<Cliente> aux = new QueueLinked<>();
-
+        int numeroDeIdosos = 0;
+        QueueTAD<Cliente> filaDeIdosos = new QueueLinked<>();
 
         for (int i = 0; i < size; i++) {
             Cliente cliente = fila.dequeue();
-            if (idosos < 5 && cliente.isIdoso()) {
-                aux.enqueue(cliente);
-                idosos++;
+            if (numeroDeIdosos < 5 && cliente.isIdoso()) {
+                filaDeIdosos.enqueue(cliente);
+                numeroDeIdosos++;
             } else {
                 fila.enqueue(cliente);
             }
         }
-        return aux;
+        return filaDeIdosos;
     }
 
-    public void atenderFila(QueueTAD<Cliente> filaDeAtendimento) {
-        System.out.println();
+    public void atenderClientes(QueueTAD<Cliente> filaDeAtendimento) {
         int size = filaDeAtendimento.size();
         if (size - 5 < 0) {
             for (int i = 0; i < size; i++) {
                 Cliente cliente = filaDeAtendimento.dequeue();
                 caixasPrioritarios[i].atenderNovoCliente(cliente);
-                System.out.println("Caixa Prioritário["+i+"]"+ cliente);
+                System.out.println("Caixa Prioritário[" + i + "]" + cliente);
             }
         } else if (size - 5 > 0) {
             for (int i = 0; i < 5; i++) {
-                System.out.println("Caixa Prioritário["+i+"]"+filaDeAtendimento.dequeue());
+                System.out.println("Caixa Prioritário[" + i + "]" + filaDeAtendimento.dequeue());
             }
             System.out.println();
             for (int i = 5; i < size; i++) {
-                System.out.println("Caixa Normal["+i+"]"+filaDeAtendimento.dequeue());
+                System.out.println("Caixa Normal[" + i + "]" + filaDeAtendimento.dequeue());
             }
         } else {
             for (int i = 0; i < size; i++) {
-                System.out.println("Caixa Prioritário["+i+"]"+filaDeAtendimento.dequeue());
+                System.out.println("Caixa Prioritário[" + i + "]" + filaDeAtendimento.dequeue());
             }
         }
 
