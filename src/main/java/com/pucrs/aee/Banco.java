@@ -1,8 +1,6 @@
 package com.pucrs.aee;
 
-/**
- * Created by Junior on 09/10/2016.
- */
+
 public class Banco {
 
     private Caixa[] caixasPrioritarios;
@@ -24,12 +22,12 @@ public class Banco {
 
 
     public QueueTAD<Cliente> criarFilaDeAtendimento(QueueTAD<Cliente> fila) {
-        QueueTAD<Cliente> filaDeAtendimento = procuraIdosos(fila);
+        QueueTAD<Cliente> filaDeIdosos = procuraIdosos(fila);
 
         if (!fila.isEmpty()) {
             int tamanhoPadrao = 5;
-            if (filaDeAtendimento.size() < 5) {
-                tamanhoPadrao = 10 - filaDeAtendimento.size();
+            if (filaDeIdosos.size() < tamanhoPadrao) {
+                tamanhoPadrao = 10 - filaDeIdosos.size();
             }
 
             if (fila.size() < tamanhoPadrao) {
@@ -37,11 +35,11 @@ public class Banco {
             }
 
             for (int i = 0; i < tamanhoPadrao; i++) {
-                filaDeAtendimento.enqueue(fila.dequeue());
+                filaDeIdosos.enqueue(fila.dequeue());
             }
         }
 
-        return filaDeAtendimento;
+        return filaDeIdosos;
 
     }
 
